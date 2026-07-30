@@ -3,50 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>نظام إدارة المتجر الإلكتروني</title>
+    <title>Fix It! | خدمات تحسين الأداء</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="er.png" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
 
-    <!-- واجهة العميل -->
+    <!-- ===== واجهة العميل ===== -->
     <div id="client-view">
+        <!-- شريط العنوان -->
         <header>
-            <div class="logo"><i class="fas fa-store"></i> متجري</div>
+            <div class="logo"><i class="fas fa-bolt"></i> Fix It!</div>
             <nav>
-                <a href="#products">المنتجات</a>
-                <a href="#about">من نحن</a>
-                <a href="#contact">اتصل بنا</a>
+                <a href="#about">من أنا</a>
+                <a href="#services">الخدمات</a>
+                <a href="#how-it-works">طريقة العمل</a>
+                <a href="#contact">تواصل</a>
             </nav>
             <div class="admin-login">
                 <button onclick="showAdminLogin()"><i class="fas fa-user-shield"></i> دخول الأدمن</button>
             </div>
         </header>
 
-        <section id="hero">
-            <h1 id="hero-title">مرحباً بك في متجري الإلكتروني</h1>
-            <p id="hero-text">أفضل المنتجات بأفضل الأسعار</p>
+        <!-- قسم الترحيب -->
+        <section class="hero" id="hero">
+            <h1 data-aos="fade-up" id="hero-title">خدمات تحسين الأداء</h1>
+            <p data-aos="fade-up" data-aos-delay="200" id="hero-text">متخصص في تحسين أداء Minecraft Java وتحسين Windows 10 و Windows 11 بأفضل الإعدادات للحصول على أعلى أداء ممكن.</p>
+            <a href="#services" class="btn-hero" data-aos="fade-up" data-aos-delay="400"><i class="fas fa-rocket"></i> اطلب الخدمة الآن</a>
         </section>
 
-        <section id="products">
-            <h2>منتجاتنا</h2>
-            <div class="products-grid" id="products-grid">
-                <!-- المنتجات ستظهر هنا ديناميكياً -->
+        <!-- قسم من أنا -->
+        <section id="about">
+            <h2 data-aos="fade-up">من أنا</h2>
+            <p data-aos="fade-up" data-aos-delay="100" id="about-text">مرحباً، أنا <span style="color: #ffffff; font-weight:700;">Fix It!</span> شغوف بتحسين أداء الألعاب والويندوز. هدفي تقديم إعدادات وتحسينات آمنة تجعل جهازك أسرع وتجربة اللعب أفضل بدون أي تعقيدات.</p>
+        </section>
+
+        <!-- قسم الخدمات -->
+        <section id="services">
+            <h2 data-aos="fade-up">الخدمات</h2>
+            <div class="cards" id="services-container">
+                <!-- الخدمات ستظهر هنا -->
             </div>
         </section>
 
-        <section id="about">
-            <h2>من نحن</h2>
-            <p id="about-text">نحن متجر إلكتروني نقدم أفضل المنتجات لعملائنا الكرام.</p>
+        <!-- قسم طريقة العمل -->
+        <section id="how-it-works">
+            <h2 data-aos="fade-up">طريقة العمل</h2>
+            <div class="work-methods" id="methods-container">
+                <!-- طرق العمل ستظهر هنا -->
+            </div>
         </section>
 
+        <!-- قسم التواصل -->
+        <section id="contact">
+            <h2 data-aos="fade-up">تواصل معي</h2>
+            <div class="social" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://wa.me/966555179536" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.tiktok.com/@fix.it325" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+            <p class="contact-note" data-aos="fade-up" data-aos-delay="300"><i class="fas fa-envelope"></i> للاستفسارات أو حجز الخدمة، تواصل معي عبر واتساب أو التيك توك</p>
+        </section>
+
+        <!-- تذييل الصفحة -->
         <footer>
-            <p id="footer-text">© 2026 متجري الإلكتروني. جميع الحقوق محفوظة.</p>
+            <p id="footer-text">© 2026 Fix It! | Made with <i class="fas fa-heart"></i> for Gamers</p>
         </footer>
     </div>
 
-    <!-- واجهة الأدمن -->
+    <!-- ===== واجهة الأدمن ===== -->
     <div id="admin-view" style="display: none;">
         <div class="admin-header">
             <h2><i class="fas fa-user-shield"></i> لوحة التحكم - الأدمن</h2>
@@ -79,24 +106,26 @@
             </div>
 
             <div class="control-section">
-                <h3>إدارة المنتجات</h3>
+                <h3>إدارة الخدمات</h3>
                 <div class="control-group">
-                    <label>اسم المنتج الجديد:</label>
-                    <input type="text" id="new-product-name" placeholder="اسم المنتج">
+                    <label>عنوان الخدمة الجديدة:</label>
+                    <input type="text" id="new-service-title" placeholder="مثال: خدمة جديدة">
                 </div>
                 <div class="control-group">
-                    <label>سعر المنتج الجديد:</label>
-                    <input type="number" id="new-product-price" placeholder="السعر">
+                    <label>تفاصيل الخدمة (كل نقطة في سطر):</label>
+                    <textarea id="new-service-details" rows="4" placeholder="تحسين الأداء&#10;تسريع النظام"></textarea>
                 </div>
-                <button onclick="addProduct()" class="add-btn"><i class="fas fa-plus"></i> إضافة منتج</button>
-                <div id="admin-products-list">
-                    <!-- قائمة المنتجات للأدمن -->
+                <div class="control-group">
+                    <label>السعر:</label>
+                    <input type="text" id="new-service-price" placeholder="مثال: 50 ريال">
                 </div>
+                <button onclick="addService()" class="add-btn"><i class="fas fa-plus"></i> إضافة خدمة</button>
+                <div id="admin-services-list"></div>
             </div>
         </div>
     </div>
 
-    <!-- نافذة تسجيل دخول الأدمن -->
+    <!-- ===== نافذة تسجيل دخول الأدمن ===== -->
     <div id="admin-login-modal" style="display: none;">
         <div class="modal-content">
             <h3><i class="fas fa-lock"></i> دخول الأدمن</h3>
@@ -107,28 +136,75 @@
         </div>
     </div>
 
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        // ======== النظام الحقيقي للأدمن ========
-        
-        // بيانات المتجر (سيتم حفظها في Local Storage)
+        AOS.init({ duration: 800, once: true });
+
+        // ======== البيانات الأساسية ========
         let storeData = {
-            heroTitle: 'مرحباً بك في متجري الإلكتروني',
-            heroText: 'أفضل المنتجات بأفضل الأسعار',
-            aboutText: 'نحن متجر إلكتروني نقدم أفضل المنتجات لعملائنا الكرام.',
-            footerText: '© 2026 متجري الإلكتروني. جميع الحقوق محفوظة.',
-            products: [
-                { id: 1, name: 'منتج 1', price: 100 },
-                { id: 2, name: 'منتج 2', price: 200 },
-                { id: 3, name: 'منتج 3', price: 150 }
+            heroTitle: 'خدمات تحسين الأداء',
+            heroText: 'متخصص في تحسين أداء Minecraft Java وتحسين Windows 10 و Windows 11 بأفضل الإعدادات للحصول على أعلى أداء ممكن.',
+            aboutText: 'مرحباً، أنا Fix It! شغوف بتحسين أداء الألعاب والويندوز. هدفي تقديم إعدادات وتحسينات آمنة تجعل جهازك أسرع وتجربة اللعب أفضل بدون أي تعقيدات.',
+            footerText: '© 2026 Fix It! | Made with ❤️ for Gamers',
+            services: [
+                {
+                    id: 1,
+                    title: 'خدمة Minecraft Java',
+                    details: ['تحسين FPS', 'مودات تحسين الأداء', 'إعدادات JVM المتقدمة', 'تقليل التقطيع (Stuttering)'],
+                    price: '50 ريال',
+                    image: 'minecraft.png'
+                },
+                {
+                    id: 2,
+                    title: 'خدمة Windows 10 / 11',
+                    details: ['تحسين أداء النظام', 'تقليل استهلاك الرام', 'تسريع زمن الإقلاع', 'تحسين تجربة الألعاب'],
+                    price: '50 ريال',
+                    image: 'windows.png'
+                },
+                {
+                    id: 3,
+                    title: '🔥 الباقة المميزة',
+                    details: ['تحسين ماين كرافت + ويندوز', 'خصم 30% على الباقة', 'دعم فني لمدة شهر', 'أولوية في التنفيذ'],
+                    price: '70 ريال (100 ريال)',
+                    image: 'er.png',
+                    featured: true
+                }
+            ],
+            methods: [
+                {
+                    id: 1,
+                    title: 'الطريقة الأولى: التحكم عن بُعد',
+                    description: 'أقوم بالاتصال بجهازك عبر برنامج TeamViewer وأتحكم فيه مباشرة لأقوم بجميع التحسينات بنفسي. هذه الطريقة سريعة وفعالة وتضمن أن كل شيء يتم بشكل احترافي.',
+                    price: '50 ريال',
+                    image: 'team.png',
+                    icon: 'fa-desktop'
+                },
+                {
+                    id: 2,
+                    title: 'الطريقة الثانية: دليل نصي كامل',
+                    description: 'أحصل على دليل نصي مفصل يحتوي على جميع الخطوات والإعدادات المطلوبة لتحسين أداء جهازك بنفسك. الدليل سهل الفهم ومنظم بشكل احترافي.',
+                    price: '30 ريال',
+                    image: null,
+                    icon: 'fa-file-alt'
+                },
+                {
+                    id: 3,
+                    title: 'الطريقة الثالثة: دليل مع دعم فني',
+                    description: 'أحصل على الدليل النصي الكامل مع دعم فني مباشر عبر واتساب أو تيك توك للإجابة على أي استفسارات أو مساعدة في أي خطوة تواجهك صعوبة فيها.',
+                    price: '40 ريال',
+                    image: null,
+                    icon: 'fa-headset'
+                }
             ]
         };
 
-        // تحميل البيانات من Local Storage
+        // ======== تحميل وحفظ البيانات ========
         function loadData() {
-            const saved = localStorage.getItem('storeData');
+            const saved = localStorage.getItem('fixitData');
             if (saved) {
                 try {
-                    storeData = JSON.parse(saved);
+                    const parsed = JSON.parse(saved);
+                    storeData = parsed;
                 } catch(e) {
                     console.error('خطأ في تحميل البيانات');
                 }
@@ -136,94 +212,119 @@
             applyData();
         }
 
-        // حفظ البيانات في Local Storage
         function saveData() {
-            localStorage.setItem('storeData', JSON.stringify(storeData));
+            localStorage.setItem('fixitData', JSON.stringify(storeData));
         }
 
-        // تطبيق البيانات على الموقع
+        // ======== تطبيق البيانات ========
         function applyData() {
-            // تحديث واجهة العميل
             document.getElementById('hero-title').textContent = storeData.heroTitle;
             document.getElementById('hero-text').textContent = storeData.heroText;
-            document.getElementById('about-text').textContent = storeData.aboutText;
-            document.getElementById('footer-text').textContent = storeData.footerText;
+            document.getElementById('about-text').innerHTML = storeData.aboutText;
+            document.getElementById('footer-text').innerHTML = storeData.footerText;
 
-            // تحديث المنتجات
-            renderProducts();
-            renderAdminProducts();
+            renderServices();
+            renderMethods();
+            renderAdminServices();
         }
 
-        // عرض المنتجات للعميل
-        function renderProducts() {
-            const grid = document.getElementById('products-grid');
-            grid.innerHTML = '';
-            storeData.products.forEach(product => {
+        // ======== عرض الخدمات ========
+        function renderServices() {
+            const container = document.getElementById('services-container');
+            container.innerHTML = '';
+            storeData.services.forEach(service => {
                 const card = document.createElement('div');
-                card.className = 'product-card';
+                card.className = `card ${service.featured ? 'featured' : ''}`;
+                card.setAttribute('data-aos', 'fade-up');
                 card.innerHTML = `
-                    <h3>${product.name}</h3>
-                    <p>السعر: ${product.price} ريال</p>
-                    <button onclick="alert('تم إضافة المنتج إلى السلة')">أضف للسلة</button>
+                    <div class="card-img">
+                        <img src="${service.image || 'minecraft.png'}" alt="${service.title}">
+                        ${service.featured ? '<div class="badge">🔥 عرض خاص</div>' : ''}
+                    </div>
+                    <h3>${service.title}</h3>
+                    <p>${service.details.map(d => `<i class="fas fa-check-circle"></i> ${d}`).join('<br>')}</p>
+                    <div class="price">السعر: ${service.price}</div>
+                    <a href="https://wa.me/966555179536?text=أريد%20طلب%20${encodeURIComponent(service.title)}" target="_blank" class="btn-service">اطلب الخدمة</a>
                 `;
-                grid.appendChild(card);
+                container.appendChild(card);
             });
         }
 
-        // عرض المنتجات للأدمن مع خيارات التعديل
-        function renderAdminProducts() {
-            const list = document.getElementById('admin-products-list');
-            list.innerHTML = '<h4>المنتجات الحالية:</h4>';
-            storeData.products.forEach((product, index) => {
+        // ======== عرض طرق العمل ========
+        function renderMethods() {
+            const container = document.getElementById('methods-container');
+            container.innerHTML = '';
+            storeData.methods.forEach(method => {
+                const card = document.createElement('div');
+                card.className = 'method-card';
+                card.setAttribute('data-aos', 'fade-up');
+                card.innerHTML = `
+                    <div class="method-img">
+                        ${method.image ? `<img src="${method.image}" alt="${method.title}">` : `<i class="fas ${method.icon}" style="font-size: 80px; color: #ffffff;"></i>`}
+                    </div>
+                    <h3><i class="fas ${method.icon}"></i> ${method.title}</h3>
+                    <p>${method.description}</p>
+                    <div class="price">السعر: ${method.price}</div>
+                    <a href="https://wa.me/966555179536?text=أريد%20طلب%20${encodeURIComponent(method.title)}" target="_blank" class="btn-service">اطلب الخدمة</a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // ======== عرض الخدمات للأدمن ========
+        function renderAdminServices() {
+            const list = document.getElementById('admin-services-list');
+            list.innerHTML = '<h4>الخدمات الحالية:</h4>';
+            storeData.services.forEach((service, index) => {
                 const div = document.createElement('div');
                 div.className = 'admin-product-item';
                 div.innerHTML = `
-                    <span>${product.name} - ${product.price} ريال</span>
-                    <button onclick="deleteProduct(${index})"><i class="fas fa-trash"></i> حذف</button>
+                    <span><strong>${service.title}</strong> - ${service.price}</span>
+                    <button onclick="deleteService(${index})"><i class="fas fa-trash"></i> حذف</button>
                 `;
                 list.appendChild(div);
             });
         }
 
-        // إضافة منتج جديد
-        function addProduct() {
-            const nameInput = document.getElementById('new-product-name');
-            const priceInput = document.getElementById('new-product-price');
-            
-            const name = nameInput.value.trim();
-            const price = parseFloat(priceInput.value);
-            
-            if (!name || isNaN(price) || price <= 0) {
-                alert('الرجاء إدخال اسم المنتج وسعر صحيح');
+        // ======== إضافة خدمة جديدة ========
+        function addService() {
+            const title = document.getElementById('new-service-title').value.trim();
+            const details = document.getElementById('new-service-details').value.split('\n').filter(d => d.trim());
+            const price = document.getElementById('new-service-price').value.trim();
+
+            if (!title || details.length === 0 || !price) {
+                alert('الرجاء ملء جميع الحقول');
                 return;
             }
 
-            const newProduct = {
+            storeData.services.push({
                 id: Date.now(),
-                name: name,
-                price: price
-            };
+                title: title,
+                details: details,
+                price: price,
+                image: 'minecraft.png',
+                featured: false
+            });
 
-            storeData.products.push(newProduct);
             saveData();
             applyData();
-            
-            nameInput.value = '';
-            priceInput.value = '';
-            alert('تم إضافة المنتج بنجاح!');
+            document.getElementById('new-service-title').value = '';
+            document.getElementById('new-service-details').value = '';
+            document.getElementById('new-service-price').value = '';
+            alert('تم إضافة الخدمة بنجاح!');
         }
 
-        // حذف منتج
-        function deleteProduct(index) {
-            if (confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
-                storeData.products.splice(index, 1);
+        // ======== حذف خدمة ========
+        function deleteService(index) {
+            if (confirm('هل أنت متأكد من حذف هذه الخدمة؟')) {
+                storeData.services.splice(index, 1);
                 saveData();
                 applyData();
-                alert('تم حذف المنتج بنجاح!');
+                alert('تم حذف الخدمة بنجاح!');
             }
         }
 
-        // وظائف تحديث المحتوى
+        // ======== تحديث المحتوى ========
         function updateHeroTitle() {
             const input = document.getElementById('edit-hero-title');
             if (input.value.trim()) {
@@ -231,7 +332,7 @@
                 saveData();
                 applyData();
                 input.value = '';
-                alert('تم تحديث العنوان بنجاح!');
+                alert('تم التحديث!');
             }
         }
 
@@ -242,7 +343,7 @@
                 saveData();
                 applyData();
                 input.value = '';
-                alert('تم تحديث النص بنجاح!');
+                alert('تم التحديث!');
             }
         }
 
@@ -253,7 +354,7 @@
                 saveData();
                 applyData();
                 input.value = '';
-                alert('تم تحديث نص "من نحن" بنجاح!');
+                alert('تم التحديث!');
             }
         }
 
@@ -264,13 +365,11 @@
                 saveData();
                 applyData();
                 input.value = '';
-                alert('تم تحديث التذييل بنجاح!');
+                alert('تم التحديث!');
             }
         }
 
         // ======== نظام دخول الأدمن ========
-        
-        // كود التفعيل الصحيح
         const ADMIN_CODE = 'Admin123';
 
         function showAdminLogin() {
@@ -287,7 +386,6 @@
                 closeAdminLogin();
                 document.getElementById('client-view').style.display = 'none';
                 document.getElementById('admin-view').style.display = 'block';
-                // ملء حقول التعديل بالقيم الحالية
                 document.getElementById('edit-hero-title').placeholder = storeData.heroTitle;
                 document.getElementById('edit-hero-text').placeholder = storeData.heroText;
                 document.getElementById('edit-about-text').placeholder = storeData.aboutText;
@@ -304,17 +402,15 @@
             if (confirm('هل أنت متأكد من تسجيل الخروج؟')) {
                 document.getElementById('client-view').style.display = 'block';
                 document.getElementById('admin-view').style.display = 'none';
-                alert('تم تسجيل الخروج بنجاح!');
+                alert('تم تسجيل الخروج!');
             }
         }
 
-        // دخول الأدمن عبر كتابة /Admin في أي مكان
+        // دخول الأدمن عبر /Admin
         document.addEventListener('keydown', function(e) {
             if (e.key === '/' && !e.ctrlKey && !e.metaKey) {
-                const activeElement = document.activeElement;
-                if (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA')) {
-                    return;
-                }
+                const active = document.activeElement;
+                if (active && (active.tagName === 'INPUT' || active.tagName === 'TEXTAREA')) return;
                 e.preventDefault();
                 showAdminLogin();
             }
@@ -325,6 +421,7 @@
     </script>
 
     <style>
+        /* ===== نفس التنسيق القديم مع إضافات بسيطة ===== */
         * {
             margin: 0;
             padding: 0;
@@ -334,49 +431,54 @@
 
         body {
             background: #0a0a0a;
-            color: #fff;
+            color: #ffffff;
+            min-height: 100vh;
         }
 
-        /* ===== واجهة العميل ===== */
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
-            background: #111;
-            border-bottom: 1px solid #222;
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            background: #111111;
+            border-bottom: 1px solid #222222;
+            z-index: 1000;
         }
 
         .logo {
             font-size: 28px;
             font-weight: 800;
-            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #ffffff;
         }
 
-        .logo i {
-            color: #fff;
-            margin-left: 10px;
+        nav {
+            display: flex;
+            gap: 35px;
         }
 
         nav a {
-            color: #ccc;
+            color: #d0d0d0;
             text-decoration: none;
-            margin: 0 15px;
+            font-size: 17px;
             transition: 0.3s;
         }
 
         nav a:hover {
-            color: #fff;
+            color: #ffffff;
         }
 
         .admin-login button {
-            background: #fff;
-            color: #000;
+            background: #ffffff;
+            color: #0a0a0a;
             border: none;
-            padding: 10px 20px;
+            padding: 8px 20px;
             border-radius: 30px;
             cursor: pointer;
             font-weight: 700;
@@ -384,123 +486,315 @@
         }
 
         .admin-login button:hover {
-            background: #ddd;
-            transform: scale(1.05);
+            background: #dddddd;
         }
 
-        #hero {
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
-            padding: 100px 20px 80px;
-            background: linear-gradient(180deg, #111, #0a0a0a);
+            padding: 120px 20px 60px;
         }
 
-        #hero h1 {
-            font-size: 48px;
+        .hero h1 {
+            font-size: 75px;
+            font-weight: 800;
             margin-bottom: 20px;
         }
 
-        #hero p {
+        .hero p {
             font-size: 22px;
-            color: #aaa;
+            line-height: 2;
+            max-width: 850px;
+            color: #b0b0b0;
         }
 
-        #products {
-            padding: 80px 8%;
-        }
-
-        #products h2 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 40px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .product-card {
-            background: #141414;
-            padding: 25px;
-            border-radius: 16px;
-            border: 1px solid #222;
-            text-align: center;
+        .btn-hero {
+            margin-top: 40px;
+            padding: 14px 45px;
+            background: #ffffff;
+            color: #0a0a0a;
+            font-weight: 700;
+            font-size: 20px;
+            border-radius: 50px;
+            text-decoration: none;
             transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: #fff;
+        .btn-hero:hover {
+            background: #dddddd;
+            transform: translateY(-3px);
         }
 
-        .product-card h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
+        section {
+            padding: 100px 8% 80px;
         }
 
-        .product-card p {
-            color: #aaa;
-            margin-bottom: 15px;
-        }
-
-        .product-card button {
-            background: #fff;
-            color: #000;
-            border: none;
-            padding: 8px 25px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-
-        .product-card button:hover {
-            background: #ddd;
-        }
-
-        #about {
-            padding: 80px 8%;
+        section h2 {
             text-align: center;
-            background: #111;
-        }
-
-        #about h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 50px;
         }
 
         #about p {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            line-height: 2;
             font-size: 20px;
-            color: #aaa;
-            max-width: 700px;
-            margin: 0 auto;
+            color: #c0c0c0;
+            background: #141414;
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #222222;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .card {
+            background: #141414;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #222222;
+            transition: 0.3s;
+            text-align: center;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: #ffffff;
+        }
+
+        .card.featured {
+            border: 2px solid #ffffff;
+            background: #111111;
+        }
+
+        .badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #ff5722;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 180px;
+            border-radius: 16px;
+            margin-bottom: 25px;
+            overflow: hidden;
+            background: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            max-width: 120px;
+            max-height: 120px;
+            object-fit: contain;
+            transition: 0.3s;
+        }
+
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .card p {
+            line-height: 2.2;
+            color: #b0b0b0;
+            text-align: right;
+            padding-right: 10px;
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .card p i {
+            margin-left: 10px;
+            color: #4caf50;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+            margin: 15px 0;
+        }
+
+        .btn-service {
+            display: inline-block;
+            padding: 10px 30px;
+            background: #ffffff;
+            color: #0a0a0a;
+            font-weight: 700;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: 0.3s;
+            font-size: 16px;
+            margin-top: auto;
+        }
+
+        .btn-service:hover {
+            background: #dddddd;
+            transform: scale(1.05);
+        }
+
+        .work-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 20px;
+        }
+
+        .method-card {
+            background: #141414;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #222222;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .method-card:hover {
+            transform: translateY(-8px);
+            border-color: #ffffff;
+        }
+
+        .method-img {
+            width: 100%;
+            height: 160px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            background: #111111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .method-img img {
+            width: 100%;
+            height: 100%;
+            max-width: 100px;
+            max-height: 100px;
+            object-fit: contain;
+        }
+
+        .method-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .method-card h3 i {
+            margin-left: 10px;
+        }
+
+        .method-card p {
+            line-height: 2;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+
+        .social {
+            display: flex;
+            justify-content: center;
+            gap: 35px;
+            margin-top: 30px;
+        }
+
+        .social a {
+            width: 75px;
+            height: 75px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #141414;
+            border-radius: 50%;
+            border: 1px solid #222222;
+            color: #d0d0d0;
+            font-size: 36px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .social a:hover {
+            background: #ffffff;
+            color: #0a0a0a;
+            transform: translateY(-5px);
+        }
+
+        .contact-note {
+            text-align: center;
+            margin-top: 30px;
+            color: #b0b0b0;
+            font-size: 18px;
+        }
+
+        .contact-note i {
+            color: #ffffff;
+            margin-left: 10px;
         }
 
         footer {
-            padding: 30px;
+            padding: 40px 20px;
             text-align: center;
-            border-top: 1px solid #222;
-            color: #888;
+            border-top: 1px solid #1a1a1a;
+            color: #777777;
+            font-size: 16px;
+            background: #0d0d0d;
         }
 
         /* ===== واجهة الأدمن ===== */
         .admin-header {
-            background: #111;
+            background: #111111;
             padding: 20px 8%;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid #fff;
+            border-bottom: 2px solid #ffffff;
         }
 
         .admin-header h2 {
-            color: #fff;
+            color: #ffffff;
         }
 
         .admin-header button {
             background: #ff4444;
-            color: #fff;
+            color: #ffffff;
             border: none;
             padding: 10px 25px;
             border-radius: 30px;
@@ -524,12 +818,12 @@
             background: #141414;
             padding: 30px;
             border-radius: 16px;
-            border: 1px solid #222;
+            border: 1px solid #222222;
         }
 
         .control-section h3 {
             margin-bottom: 20px;
-            color: #fff;
+            color: #ffffff;
             font-size: 24px;
         }
 
@@ -541,28 +835,31 @@
         }
 
         .control-group label {
-            color: #ccc;
+            color: #cccccc;
             font-weight: 600;
         }
 
-        .control-group input {
+        .control-group input,
+        .control-group textarea {
             padding: 10px 15px;
             border-radius: 10px;
-            border: 1px solid #333;
+            border: 1px solid #333333;
             background: #0a0a0a;
-            color: #fff;
+            color: #ffffff;
             font-size: 16px;
         }
 
-        .control-group input:focus {
+        .control-group input:focus,
+        .control-group textarea:focus {
             outline: none;
-            border-color: #fff;
+            border-color: #ffffff;
         }
 
-        .control-group button, .add-btn {
+        .control-group button,
+        .add-btn {
             padding: 10px 20px;
-            background: #fff;
-            color: #000;
+            background: #ffffff;
+            color: #0a0a0a;
             border: none;
             border-radius: 10px;
             cursor: pointer;
@@ -571,13 +868,14 @@
             margin-top: 5px;
         }
 
-        .control-group button:hover, .add-btn:hover {
-            background: #ddd;
+        .control-group button:hover,
+        .add-btn:hover {
+            background: #dddddd;
         }
 
         .add-btn {
             background: #4caf50;
-            color: #fff;
+            color: #ffffff;
             padding: 12px 25px;
             font-size: 16px;
         }
@@ -586,12 +884,12 @@
             background: #388e3c;
         }
 
-        #admin-products-list {
+        #admin-services-list {
             margin-top: 20px;
         }
 
-        #admin-products-list h4 {
-            color: #ccc;
+        #admin-services-list h4 {
+            color: #cccccc;
             margin-bottom: 10px;
         }
 
@@ -603,12 +901,12 @@
             background: #0a0a0a;
             border-radius: 10px;
             margin-bottom: 8px;
-            border: 1px solid #222;
+            border: 1px solid #222222;
         }
 
         .admin-product-item button {
             background: #ff4444;
-            color: #fff;
+            color: #ffffff;
             border: none;
             padding: 5px 15px;
             border-radius: 8px;
@@ -639,7 +937,7 @@
             background: #141414;
             padding: 40px;
             border-radius: 20px;
-            border: 1px solid #333;
+            border: 1px solid #333333;
             width: 90%;
             max-width: 400px;
             text-align: center;
@@ -654,9 +952,9 @@
             width: 100%;
             padding: 12px 15px;
             border-radius: 10px;
-            border: 1px solid #333;
+            border: 1px solid #333333;
             background: #0a0a0a;
-            color: #fff;
+            color: #ffffff;
             font-size: 18px;
             margin-bottom: 15px;
             text-align: center;
@@ -665,7 +963,7 @@
 
         .modal-content input:focus {
             outline: none;
-            border-color: #fff;
+            border-color: #ffffff;
         }
 
         .modal-content button {
@@ -680,7 +978,7 @@
 
         .modal-content button:first-of-type {
             background: #4caf50;
-            color: #fff;
+            color: #ffffff;
         }
 
         .modal-content button:first-of-type:hover {
@@ -689,7 +987,7 @@
 
         .modal-content button:last-of-type {
             background: #ff4444;
-            color: #fff;
+            color: #ffffff;
         }
 
         .modal-content button:last-of-type:hover {
@@ -698,24 +996,43 @@
 
         .hint {
             margin-top: 15px;
-            color: #888;
+            color: #888888;
             font-size: 14px;
         }
 
         .hint strong {
-            color: #fff;
+            color: #ffffff;
         }
 
         /* ===== استجابة للجوال ===== */
-        @media (max-width: 768px) {
+        @media (max-width: 900px) {
             header {
                 flex-direction: column;
                 gap: 15px;
                 padding: 15px 20px;
             }
 
-            nav a {
-                margin: 0 10px;
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            section {
+                padding: 80px 25px 60px;
+            }
+
+            .cards,
+            .work-methods {
+                grid-template-columns: 1fr;
             }
 
             .admin-controls {
@@ -723,20 +1040,33 @@
                 padding: 20px 5%;
             }
 
-            #hero h1 {
-                font-size: 32px;
+            .card-img {
+                height: 150px;
             }
 
-            #hero p {
-                font-size: 18px;
+            .card-img img {
+                max-width: 100px;
+                max-height: 100px;
             }
 
-            .products-grid {
-                grid-template-columns: 1fr;
+            .method-img {
+                height: 140px;
             }
 
-            .modal-content {
-                padding: 30px 20px;
+            .method-img img {
+                max-width: 80px;
+                max-height: 80px;
+            }
+
+            .social a {
+                width: 65px;
+                height: 65px;
+                font-size: 30px;
+            }
+
+            .btn-hero {
+                padding: 12px 30px;
+                font-size: 17px;
             }
         }
     </style>
