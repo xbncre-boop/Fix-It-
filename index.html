@@ -2,150 +2,131 @@
 <html lang="ar" dir="rtl">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fix It! | Improve Performance</title>
 
-<title>Fix It! | Improve Performance</title>
+    <!-- رابط ملف التنسيق -->
+    <link rel="stylesheet" href="style.css">
 
-<link rel="stylesheet" href="style.css">
+    <!-- خط كايرو -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <!-- إضافة AOS (Animate On Scroll) للحركات أثناء التمرير -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
 
-<header>
+    <!-- شريط العنوان -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-bolt" style="color: #f0c040;"></i> Fix It!
+        </div>
+        <nav>
+            <a href="#about">من أنا</a>
+            <a href="#services">الخدمات</a>
+            <a href="#contact">تواصل</a>
+        </nav>
+    </header>
 
-<div class="logo">
-Fix It!
-</div>
+    <!-- قسم الترحيب (Hero) -->
+    <section class="hero">
+        <h1 data-aos="fade-up">Improve Performance</h1>
+        <p data-aos="fade-up" data-aos-delay="200">
+            متخصص في تحسين أداء Minecraft Java
+            وتحسين Windows 10 و Windows 11
+            بأفضل الإعدادات للحصول على أعلى أداء ممكن.
+        </p>
+        <a href="#services" class="btn-hero" data-aos="fade-up" data-aos-delay="400">
+            <i class="fas fa-rocket"></i> اكتشف الخدمات
+        </a>
+    </section>
 
-<nav>
+    <!-- قسم من أنا -->
+    <section id="about">
+        <h2 data-aos="fade-up">🚀 من أنا</h2>
+        <p data-aos="fade-up" data-aos-delay="100">
+            مرحباً، أنا <span style="color:#f0c040; font-weight:700;">Fix It!</span> شغوف بتحسين أداء الألعاب والويندوز.
+            هدفي تقديم إعدادات وتحسينات آمنة تجعل جهازك أسرع وتجربة اللعب أفضل بدون أي تعقيدات.
+        </p>
+    </section>
 
-<a href="#about">من أنا</a>
+    <!-- قسم الخدمات -->
+    <section id="services">
+        <h2 data-aos="fade-up">⚙️ الخدمات</h2>
+        <div class="cards">
 
-<a href="#services">الخدمات</a>
+            <!-- بطاقة ماين كرافت -->
+            <div class="card" data-aos="flip-up" data-aos-delay="100">
+                <!-- صورة الخدمة من Unsplash (Minecraft Style) -->
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f202?w=500&h=300&fit=crop');">
+                    <div class="card-overlay">
+                        <i class="fas fa-cubes"></i>
+                    </div>
+                </div>
+                <h3>Minecraft Java</h3>
+                <p>
+                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تحسين FPS<br>
+                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> مودات تحسين الأداء<br>
+                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> إعدادات JVM المتقدمة<br>
+                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تقليل التقطيع (Stuttering)
+                </p>
+            </div>
 
-<a href="#contact">تواصل</a>
+            <!-- بطاقة ويندوز -->
+            <div class="card" data-aos="flip-up" data-aos-delay="300">
+                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1613909207039-6285f2bc36f7?w=500&h=300&fit=crop');">
+                    <div class="card-overlay">
+                        <i class="fab fa-windows"></i>
+                    </div>
+                </div>
+                <h3>Windows 10 / 11</h3>
+                <p>
+                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تحسين أداء النظام<br>
+                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تقليل استهلاك الرام<br>
+                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تسريع زمن الإقلاع<br>
+                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تحسين تجربة الألعاب
+                </p>
+            </div>
 
-</nav>
+        </div>
+    </section>
 
-</header>
+    <!-- قسم التواصل -->
+    <section id="contact">
+        <h2 data-aos="fade-up">📱 تواصل معي</h2>
+        <div class="social" data-aos="zoom-in" data-aos-delay="200">
+            <a href="https://wa.me/966555179536" target="_blank" aria-label="WhatsApp">
+                <i class="fa-brands fa-whatsapp"></i>
+            </a>
+            <a href="https://www.tiktok.com/@fix.it325" target="_blank" aria-label="TikTok">
+                <i class="fa-brands fa-tiktok"></i>
+            </a>
+            <a href="#" target="_blank" aria-label="YouTube">
+                <i class="fa-brands fa-youtube"></i>
+            </a>
+        </div>
+    </section>
 
-<section class="hero">
+    <!-- تذييل الصفحة -->
+    <footer>
+        <p>© 2026 Fix It! | Made with <i class="fas fa-heart" style="color:#e74c3c;"></i> for Gamers</p>
+    </footer>
 
-<h1>Improve Performance</h1>
-
-<p>
-
-متخصص في تحسين أداء Minecraft Java
-
-وتحسين Windows 10 و Windows 11
-
-بأفضل الإعدادات للحصول على أعلى أداء ممكن.
-
-</p>
-
-</section>
-
-<section id="about">
-
-<h2>من أنا</h2>
-
-<p>
-
-مرحباً،
-
-أنا مهتم بتحسين أداء الألعاب والويندوز.
-
-هدفي تقديم إعدادات وتحسينات آمنة تجعل جهازك أسرع
-
-وتجربة اللعب أفضل.
-
-</p>
-
-</section>
-
-<section id="services">
-
-<h2>الخدمات</h2>
-
-<div class="cards">
-
-<div class="card">
-
-<h3>Minecraft Java</h3>
-
-<p>
-
-تحسين FPS
-
-مودات تحسين
-
-إعدادات Java
-
-تقليل التقطيع
-
-</p>
-
-</div>
-
-<div class="card">
-
-<h3>Windows 10 / 11</h3>
-
-<p>
-
-تحسين النظام
-
-تقليل استهلاك الرام
-
-تسريع الإقلاع
-
-تحسين الألعاب
-
-</p>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<h2>تواصل معي</h2>
-
-<div class="social">
-
-<a href="https://wa.me/966555179536" target="_blank">
-
-<i class="fa-brands fa-whatsapp"></i>
-
-</a>
-
-<a href="https://www.tiktok.com/@fix.it325" target="_blank">
-
-<i class="fa-brands fa-tiktok"></i>
-
-</a>
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 Fix It!
-
-</footer>
+    <!-- تفعيل مكتبة AOS للحركات -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000, // مدة الحركة
+            once: true, // تحدث مرة واحدة فقط
+        });
+    </script>
 
 </body>
 
