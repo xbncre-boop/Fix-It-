@@ -1,212 +1,745 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fix It! | خدمات تحسين الأداء</title>
-
-    <!-- رابط ملف التنسيق -->
+    <title>نظام إدارة المتجر الإلكتروني</title>
     <link rel="stylesheet" href="style.css">
-
-    <!-- أيقونة الموقع -->
-    <link rel="icon" href="er.png" type="image/png">
-
-    <!-- خط كايرو -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- مكتبة الأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
-    <!-- إضافة AOS (Animate On Scroll) للحركات أثناء التمرير -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
-
 <body>
 
-    <!-- شريط العنوان -->
-    <header>
-        <div class="logo">
-            <i class="fas fa-bolt"></i> Fix It!
+    <!-- واجهة العميل -->
+    <div id="client-view">
+        <header>
+            <div class="logo"><i class="fas fa-store"></i> متجري</div>
+            <nav>
+                <a href="#products">المنتجات</a>
+                <a href="#about">من نحن</a>
+                <a href="#contact">اتصل بنا</a>
+            </nav>
+            <div class="admin-login">
+                <button onclick="showAdminLogin()"><i class="fas fa-user-shield"></i> دخول الأدمن</button>
+            </div>
+        </header>
+
+        <section id="hero">
+            <h1 id="hero-title">مرحباً بك في متجري الإلكتروني</h1>
+            <p id="hero-text">أفضل المنتجات بأفضل الأسعار</p>
+        </section>
+
+        <section id="products">
+            <h2>منتجاتنا</h2>
+            <div class="products-grid" id="products-grid">
+                <!-- المنتجات ستظهر هنا ديناميكياً -->
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>من نحن</h2>
+            <p id="about-text">نحن متجر إلكتروني نقدم أفضل المنتجات لعملائنا الكرام.</p>
+        </section>
+
+        <footer>
+            <p id="footer-text">© 2026 متجري الإلكتروني. جميع الحقوق محفوظة.</p>
+        </footer>
+    </div>
+
+    <!-- واجهة الأدمن -->
+    <div id="admin-view" style="display: none;">
+        <div class="admin-header">
+            <h2><i class="fas fa-user-shield"></i> لوحة التحكم - الأدمن</h2>
+            <button onclick="logoutAdmin()"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</button>
         </div>
-        <nav>
-            <a href="#about">من أنا</a>
-            <a href="#services">الخدمات</a>
-            <a href="#how-it-works">طريقة العمل</a>
-            <a href="#contact">تواصل</a>
-        </nav>
-    </header>
 
-    <!-- قسم الترحيب (Hero) -->
-    <section class="hero">
-        <h1 data-aos="fade-up">خدمات تحسين الأداء</h1>
-        <p data-aos="fade-up" data-aos-delay="200">
-            متخصص في تحسين أداء Minecraft Java وتحسين Windows 10 و Windows 11 بأفضل الإعدادات للحصول على أعلى أداء ممكن.
-        </p>
-        <a href="#services" class="btn-hero" data-aos="fade-up" data-aos-delay="400">
-            <i class="fas fa-rocket"></i> اطلب الخدمة الآن
-        </a>
-    </section>
-
-    <!-- قسم من أنا -->
-    <section id="about">
-        <h2 data-aos="fade-up">من أنا</h2>
-        <p data-aos="fade-up" data-aos-delay="100">
-            مرحباً، أنا <span style="color: #ffffff; font-weight:700;">Fix It!</span> شغوف بتحسين أداء الألعاب والويندوز. هدفي تقديم إعدادات وتحسينات آمنة تجعل جهازك أسرع وتجربة اللعب أفضل بدون أي تعقيدات.
-        </p>
-    </section>
-
-    <!-- قسم الخدمات -->
-    <section id="services">
-        <h2 data-aos="fade-up">الخدمات</h2>
-        <div class="cards">
-
-            <!-- بطاقة ماين كرافت -->
-            <div class="card" data-aos="fade-up" data-aos-delay="100">
-                <div class="card-img">
-                    <img src="minecraft.png" alt="Minecraft Java">
+        <div class="admin-controls">
+            <div class="control-section">
+                <h3>تعديل المحتوى</h3>
+                <div class="control-group">
+                    <label>عنوان الصفحة الرئيسية:</label>
+                    <input type="text" id="edit-hero-title" placeholder="أدخل العنوان الجديد">
+                    <button onclick="updateHeroTitle()">تحديث</button>
                 </div>
-                <h3>خدمة Minecraft Java</h3>
-                <p>
-                    <i class="fas fa-check-circle"></i> تحسين FPS<br>
-                    <i class="fas fa-check-circle"></i> مودات تحسين الأداء<br>
-                    <i class="fas fa-check-circle"></i> إعدادات JVM المتقدمة<br>
-                    <i class="fas fa-check-circle"></i> تقليل التقطيع (Stuttering)
-                </p>
-                <div class="price">السعر: 50 ريال</div>
-                <a href="https://wa.me/966555179536?text=أريد%20طلب%20خدمة%20تحسين%20Minecraft%20Java" target="_blank" class="btn-service">اطلب الخدمة</a>
+                <div class="control-group">
+                    <label>نص الصفحة الرئيسية:</label>
+                    <input type="text" id="edit-hero-text" placeholder="أدخل النص الجديد">
+                    <button onclick="updateHeroText()">تحديث</button>
+                </div>
+                <div class="control-group">
+                    <label>نص قسم "من نحن":</label>
+                    <input type="text" id="edit-about-text" placeholder="أدخل النص الجديد">
+                    <button onclick="updateAboutText()">تحديث</button>
+                </div>
+                <div class="control-group">
+                    <label>نص التذييل:</label>
+                    <input type="text" id="edit-footer-text" placeholder="أدخل النص الجديد">
+                    <button onclick="updateFooterText()">تحديث</button>
+                </div>
             </div>
 
-            <!-- بطاقة ويندوز -->
-            <div class="card" data-aos="fade-up" data-aos-delay="200">
-                <div class="card-img">
-                    <img src="windows.png" alt="Windows 10/11">
+            <div class="control-section">
+                <h3>إدارة المنتجات</h3>
+                <div class="control-group">
+                    <label>اسم المنتج الجديد:</label>
+                    <input type="text" id="new-product-name" placeholder="اسم المنتج">
                 </div>
-                <h3>خدمة Windows 10 / 11</h3>
-                <p>
-                    <i class="fas fa-check-circle"></i> تحسين أداء النظام<br>
-                    <i class="fas fa-check-circle"></i> تقليل استهلاك الرام<br>
-                    <i class="fas fa-check-circle"></i> تسريع زمن الإقلاع<br>
-                    <i class="fas fa-check-circle"></i> تحسين تجربة الألعاب
-                </p>
-                <div class="price">السعر: 50 ريال</div>
-                <a href="https://wa.me/966555179536?text=أريد%20طلب%20خدمة%20تحسين%20Windows" target="_blank" class="btn-service">اطلب الخدمة</a>
-            </div>
-
-            <!-- الباقة المميزة (عرض خاص) -->
-            <div class="card featured" data-aos="fade-up" data-aos-delay="300">
-                <div class="card-img">
-                    <img src="er.png" alt="باقة مميزة">
-                    <div class="badge">🔥 عرض خاص</div>
+                <div class="control-group">
+                    <label>سعر المنتج الجديد:</label>
+                    <input type="number" id="new-product-price" placeholder="السعر">
                 </div>
-                <h3>الباقة المميزة</h3>
-                <p>
-                    <i class="fas fa-star"></i> تحسين ماين كرافت + ويندوز<br>
-                    <i class="fas fa-star"></i> خصم 30% على الباقة<br>
-                    <i class="fas fa-star"></i> دعم فني لمدة شهر<br>
-                    <i class="fas fa-star"></i> أولوية في التنفيذ
-                </p>
-                <div class="price">السعر: 70 ريال <span class="old-price">(100 ريال)</span></div>
-                <a href="https://wa.me/966555179536?text=أريد%20طلب%20الباقة%20المميزة" target="_blank" class="btn-service featured-btn">احجز الباقة المميزة</a>
+                <button onclick="addProduct()" class="add-btn"><i class="fas fa-plus"></i> إضافة منتج</button>
+                <div id="admin-products-list">
+                    <!-- قائمة المنتجات للأدمن -->
+                </div>
             </div>
-
         </div>
-    </section>
+    </div>
 
-    <!-- قسم طريقة العمل -->
-    <section id="how-it-works">
-        <h2 data-aos="fade-up">طريقة العمل</h2>
-        <div class="work-methods">
-
-            <!-- الطريقة الأولى: TeamViewer -->
-            <div class="method-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="method-img">
-                    <img src="team.png" alt="TeamViewer">
-                </div>
-                <h3><i class="fas fa-desktop"></i> الطريقة الأولى: التحكم عن بُعد</h3>
-                <p>
-                    أقوم بالاتصال بجهازك عبر برنامج <strong>TeamViewer</strong> وأتحكم فيه مباشرة لأقوم بجميع التحسينات بنفسي. 
-                    هذه الطريقة سريعة وفعالة وتضمن أن كل شيء يتم بشكل احترافي.
-                </p>
-                <div class="price">السعر: 50 ريال</div>
-                <a href="https://wa.me/966555179536?text=أريد%20طلب%20خدمة%20TeamViewer" target="_blank" class="btn-service">اطلب الخدمة</a>
-            </div>
-
-            <!-- الطريقة الثانية: دليل نصي كامل -->
-            <div class="method-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="method-img" style="background: #1a1a1a; display: flex; justify-content: center; align-items: center;">
-                    <i class="fas fa-file-alt" style="font-size: 80px; color: #ffffff;"></i>
-                </div>
-                <h3><i class="fas fa-file-alt"></i> الطريقة الثانية: دليل نصي كامل</h3>
-                <p>
-                    أحصل على <strong>دليل نصي مفصل</strong> يحتوي على جميع الخطوات والإعدادات المطلوبة لتحسين أداء جهازك 
-                    بنفسك. الدليل سهل الفهم ومنظم بشكل احترافي.
-                </p>
-                <div class="price">السعر: 30 ريال</div>
-                <a href="https://wa.me/966555179536?text=أريد%20طلب%20الدليل%20النصي" target="_blank" class="btn-service">اطلب الخدمة</a>
-            </div>
-
-            <!-- الطريقة الثالثة: دليل نصي مع دعم -->
-            <div class="method-card" data-aos="fade-up" data-aos-delay="300">
-                <div class="method-img" style="background: #1a1a1a; display: flex; justify-content: center; align-items: center;">
-                    <i class="fas fa-headset" style="font-size: 80px; color: #ffffff;"></i>
-                </div>
-                <h3><i class="fas fa-headset"></i> الطريقة الثالثة: دليل مع دعم فني</h3>
-                <p>
-                    أحصل على <strong>الدليل النصي الكامل</strong> مع <strong>دعم فني مباشر</strong> عبر واتساب أو تيك توك 
-                    للإجابة على أي استفسارات أو مساعدة في أي خطوة تواجهك صعوبة فيها.
-                </p>
-                <div class="price">السعر: 40 ريال</div>
-                <a href="https://wa.me/966555179536?text=أريد%20طلب%20دليل%20مع%20دعم%20فني" target="_blank" class="btn-service">اطلب الخدمة</a>
-            </div>
-
+    <!-- نافذة تسجيل دخول الأدمن -->
+    <div id="admin-login-modal" style="display: none;">
+        <div class="modal-content">
+            <h3><i class="fas fa-lock"></i> دخول الأدمن</h3>
+            <input type="password" id="admin-password" placeholder="أدخل كود التفعيل">
+            <button onclick="verifyAdmin()">تأكيد</button>
+            <button onclick="closeAdminLogin()">إلغاء</button>
+            <p class="hint">كود التفعيل: <strong>Admin123</strong></p>
         </div>
-    </section>
+    </div>
 
-    <!-- قسم التواصل -->
-    <section id="contact">
-        <h2 data-aos="fade-up">تواصل معي</h2>
-        <div class="social" data-aos="fade-up" data-aos-delay="200">
-            <a href="https://wa.me/966555179536" target="_blank" aria-label="WhatsApp">
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-            <a href="https://www.tiktok.com/@fix.it325" target="_blank" aria-label="TikTok">
-                <i class="fa-brands fa-tiktok"></i>
-            </a>
-        </div>
-        <p class="contact-note" data-aos="fade-up" data-aos-delay="300">
-            <i class="fas fa-envelope"></i> للاستفسارات أو حجز الخدمة، تواصل معي عبر واتساب أو التيك توك
-        </p>
-    </section>
-
-    <!-- تذييل الصفحة -->
-    <footer>
-        <p>© 2026 Fix It! | Made with <i class="fas fa-heart"></i> for Gamers</p>
-    </footer>
-
-    <!-- تفعيل مكتبة AOS للحركات -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-        });
-    </script>
+        // ======== النظام الحقيقي للأدمن ========
+        
+        // بيانات المتجر (سيتم حفظها في Local Storage)
+        let storeData = {
+            heroTitle: 'مرحباً بك في متجري الإلكتروني',
+            heroText: 'أفضل المنتجات بأفضل الأسعار',
+            aboutText: 'نحن متجر إلكتروني نقدم أفضل المنتجات لعملائنا الكرام.',
+            footerText: '© 2026 متجري الإلكتروني. جميع الحقوق محفوظة.',
+            products: [
+                { id: 1, name: 'منتج 1', price: 100 },
+                { id: 2, name: 'منتج 2', price: 200 },
+                { id: 3, name: 'منتج 3', price: 150 }
+            ]
+        };
 
-    <!-- رسالة منبثقة عند الضغط على طريقة العمل -->
-    <script>
-        document.querySelectorAll('.method-card .btn-service').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.preventDefault();
-                alert('⚠️ يجب طلب الخدمة أولاً لتحديد الطريقة المناسبة');
-                // يمكن توجيه المستخدم إلى قسم الخدمات
-                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        // تحميل البيانات من Local Storage
+        function loadData() {
+            const saved = localStorage.getItem('storeData');
+            if (saved) {
+                try {
+                    storeData = JSON.parse(saved);
+                } catch(e) {
+                    console.error('خطأ في تحميل البيانات');
+                }
+            }
+            applyData();
+        }
+
+        // حفظ البيانات في Local Storage
+        function saveData() {
+            localStorage.setItem('storeData', JSON.stringify(storeData));
+        }
+
+        // تطبيق البيانات على الموقع
+        function applyData() {
+            // تحديث واجهة العميل
+            document.getElementById('hero-title').textContent = storeData.heroTitle;
+            document.getElementById('hero-text').textContent = storeData.heroText;
+            document.getElementById('about-text').textContent = storeData.aboutText;
+            document.getElementById('footer-text').textContent = storeData.footerText;
+
+            // تحديث المنتجات
+            renderProducts();
+            renderAdminProducts();
+        }
+
+        // عرض المنتجات للعميل
+        function renderProducts() {
+            const grid = document.getElementById('products-grid');
+            grid.innerHTML = '';
+            storeData.products.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <h3>${product.name}</h3>
+                    <p>السعر: ${product.price} ريال</p>
+                    <button onclick="alert('تم إضافة المنتج إلى السلة')">أضف للسلة</button>
+                `;
+                grid.appendChild(card);
             });
+        }
+
+        // عرض المنتجات للأدمن مع خيارات التعديل
+        function renderAdminProducts() {
+            const list = document.getElementById('admin-products-list');
+            list.innerHTML = '<h4>المنتجات الحالية:</h4>';
+            storeData.products.forEach((product, index) => {
+                const div = document.createElement('div');
+                div.className = 'admin-product-item';
+                div.innerHTML = `
+                    <span>${product.name} - ${product.price} ريال</span>
+                    <button onclick="deleteProduct(${index})"><i class="fas fa-trash"></i> حذف</button>
+                `;
+                list.appendChild(div);
+            });
+        }
+
+        // إضافة منتج جديد
+        function addProduct() {
+            const nameInput = document.getElementById('new-product-name');
+            const priceInput = document.getElementById('new-product-price');
+            
+            const name = nameInput.value.trim();
+            const price = parseFloat(priceInput.value);
+            
+            if (!name || isNaN(price) || price <= 0) {
+                alert('الرجاء إدخال اسم المنتج وسعر صحيح');
+                return;
+            }
+
+            const newProduct = {
+                id: Date.now(),
+                name: name,
+                price: price
+            };
+
+            storeData.products.push(newProduct);
+            saveData();
+            applyData();
+            
+            nameInput.value = '';
+            priceInput.value = '';
+            alert('تم إضافة المنتج بنجاح!');
+        }
+
+        // حذف منتج
+        function deleteProduct(index) {
+            if (confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
+                storeData.products.splice(index, 1);
+                saveData();
+                applyData();
+                alert('تم حذف المنتج بنجاح!');
+            }
+        }
+
+        // وظائف تحديث المحتوى
+        function updateHeroTitle() {
+            const input = document.getElementById('edit-hero-title');
+            if (input.value.trim()) {
+                storeData.heroTitle = input.value.trim();
+                saveData();
+                applyData();
+                input.value = '';
+                alert('تم تحديث العنوان بنجاح!');
+            }
+        }
+
+        function updateHeroText() {
+            const input = document.getElementById('edit-hero-text');
+            if (input.value.trim()) {
+                storeData.heroText = input.value.trim();
+                saveData();
+                applyData();
+                input.value = '';
+                alert('تم تحديث النص بنجاح!');
+            }
+        }
+
+        function updateAboutText() {
+            const input = document.getElementById('edit-about-text');
+            if (input.value.trim()) {
+                storeData.aboutText = input.value.trim();
+                saveData();
+                applyData();
+                input.value = '';
+                alert('تم تحديث نص "من نحن" بنجاح!');
+            }
+        }
+
+        function updateFooterText() {
+            const input = document.getElementById('edit-footer-text');
+            if (input.value.trim()) {
+                storeData.footerText = input.value.trim();
+                saveData();
+                applyData();
+                input.value = '';
+                alert('تم تحديث التذييل بنجاح!');
+            }
+        }
+
+        // ======== نظام دخول الأدمن ========
+        
+        // كود التفعيل الصحيح
+        const ADMIN_CODE = 'Admin123';
+
+        function showAdminLogin() {
+            document.getElementById('admin-login-modal').style.display = 'flex';
+        }
+
+        function closeAdminLogin() {
+            document.getElementById('admin-login-modal').style.display = 'none';
+        }
+
+        function verifyAdmin() {
+            const input = document.getElementById('admin-password');
+            if (input.value === ADMIN_CODE) {
+                closeAdminLogin();
+                document.getElementById('client-view').style.display = 'none';
+                document.getElementById('admin-view').style.display = 'block';
+                // ملء حقول التعديل بالقيم الحالية
+                document.getElementById('edit-hero-title').placeholder = storeData.heroTitle;
+                document.getElementById('edit-hero-text').placeholder = storeData.heroText;
+                document.getElementById('edit-about-text').placeholder = storeData.aboutText;
+                document.getElementById('edit-footer-text').placeholder = storeData.footerText;
+                alert('تم تسجيل الدخول بنجاح!');
+                input.value = '';
+            } else {
+                alert('كود التفعيل غير صحيح!');
+                input.value = '';
+            }
+        }
+
+        function logoutAdmin() {
+            if (confirm('هل أنت متأكد من تسجيل الخروج؟')) {
+                document.getElementById('client-view').style.display = 'block';
+                document.getElementById('admin-view').style.display = 'none';
+                alert('تم تسجيل الخروج بنجاح!');
+            }
+        }
+
+        // دخول الأدمن عبر كتابة /Admin في أي مكان
+        document.addEventListener('keydown', function(e) {
+            if (e.key === '/' && !e.ctrlKey && !e.metaKey) {
+                const activeElement = document.activeElement;
+                if (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA')) {
+                    return;
+                }
+                e.preventDefault();
+                showAdminLogin();
+            }
         });
+
+        // ======== تشغيل النظام ========
+        loadData();
     </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+        }
+
+        /* ===== واجهة العميل ===== */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            background: #111;
+            border-bottom: 1px solid #222;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .logo i {
+            color: #fff;
+            margin-left: 10px;
+        }
+
+        nav a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #fff;
+        }
+
+        .admin-login button {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .admin-login button:hover {
+            background: #ddd;
+            transform: scale(1.05);
+        }
+
+        #hero {
+            text-align: center;
+            padding: 100px 20px 80px;
+            background: linear-gradient(180deg, #111, #0a0a0a);
+        }
+
+        #hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        #hero p {
+            font-size: 22px;
+            color: #aaa;
+        }
+
+        #products {
+            padding: 80px 8%;
+        }
+
+        #products h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: #141414;
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid #222;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            border-color: #fff;
+        }
+
+        .product-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .product-card button {
+            background: #fff;
+            color: #000;
+            border: none;
+            padding: 8px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .product-card button:hover {
+            background: #ddd;
+        }
+
+        #about {
+            padding: 80px 8%;
+            text-align: center;
+            background: #111;
+        }
+
+        #about h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        #about p {
+            font-size: 20px;
+            color: #aaa;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid #222;
+            color: #888;
+        }
+
+        /* ===== واجهة الأدمن ===== */
+        .admin-header {
+            background: #111;
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 2px solid #fff;
+        }
+
+        .admin-header h2 {
+            color: #fff;
+        }
+
+        .admin-header button {
+            background: #ff4444;
+            color: #fff;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .admin-header button:hover {
+            background: #cc0000;
+        }
+
+        .admin-controls {
+            padding: 40px 8%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .control-section {
+            background: #141414;
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid #222;
+        }
+
+        .control-section h3 {
+            margin-bottom: 20px;
+            color: #fff;
+            font-size: 24px;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .control-group label {
+            color: #ccc;
+            font-weight: 600;
+        }
+
+        .control-group input {
+            padding: 10px 15px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            background: #0a0a0a;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .control-group input:focus {
+            outline: none;
+            border-color: #fff;
+        }
+
+        .control-group button, .add-btn {
+            padding: 10px 20px;
+            background: #fff;
+            color: #000;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+            margin-top: 5px;
+        }
+
+        .control-group button:hover, .add-btn:hover {
+            background: #ddd;
+        }
+
+        .add-btn {
+            background: #4caf50;
+            color: #fff;
+            padding: 12px 25px;
+            font-size: 16px;
+        }
+
+        .add-btn:hover {
+            background: #388e3c;
+        }
+
+        #admin-products-list {
+            margin-top: 20px;
+        }
+
+        #admin-products-list h4 {
+            color: #ccc;
+            margin-bottom: 10px;
+        }
+
+        .admin-product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: #0a0a0a;
+            border-radius: 10px;
+            margin-bottom: 8px;
+            border: 1px solid #222;
+        }
+
+        .admin-product-item button {
+            background: #ff4444;
+            color: #fff;
+            border: none;
+            padding: 5px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .admin-product-item button:hover {
+            background: #cc0000;
+        }
+
+        /* ===== نافذة تسجيل الدخول ===== */
+        #admin-login-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: #141414;
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid #333;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 12px 15px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            background: #0a0a0a;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 15px;
+            text-align: center;
+            letter-spacing: 3px;
+        }
+
+        .modal-content input:focus {
+            outline: none;
+            border-color: #fff;
+        }
+
+        .modal-content button {
+            padding: 10px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 700;
+            margin: 5px;
+            transition: 0.3s;
+        }
+
+        .modal-content button:first-of-type {
+            background: #4caf50;
+            color: #fff;
+        }
+
+        .modal-content button:first-of-type:hover {
+            background: #388e3c;
+        }
+
+        .modal-content button:last-of-type {
+            background: #ff4444;
+            color: #fff;
+        }
+
+        .modal-content button:last-of-type:hover {
+            background: #cc0000;
+        }
+
+        .hint {
+            margin-top: 15px;
+            color: #888;
+            font-size: 14px;
+        }
+
+        .hint strong {
+            color: #fff;
+        }
+
+        /* ===== استجابة للجوال ===== */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+
+            .admin-controls {
+                grid-template-columns: 1fr;
+                padding: 20px 5%;
+            }
+
+            #hero h1 {
+                font-size: 32px;
+            }
+
+            #hero p {
+                font-size: 18px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 
 </body>
-
 </html>
