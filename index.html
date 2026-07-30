@@ -26,7 +26,7 @@
     <!-- شريط العنوان -->
     <header>
         <div class="logo">
-            <i class="fas fa-bolt" style="color: #f0c040;"></i> Fix It!
+            <i class="fas fa-bolt"></i> Fix It!
         </div>
         <nav>
             <a href="#about">من أنا</a>
@@ -50,7 +50,7 @@
 
     <!-- قسم من أنا -->
     <section id="about">
-        <h2 data-aos="fade-up">🚀 من أنا</h2>
+        <h2 data-aos="fade-up">من أنا</h2>
         <p data-aos="fade-up" data-aos-delay="100">
             مرحباً، أنا <span style="color:#f0c040; font-weight:700;">Fix It!</span> شغوف بتحسين أداء الألعاب والويندوز.
             هدفي تقديم إعدادات وتحسينات آمنة تجعل جهازك أسرع وتجربة اللعب أفضل بدون أي تعقيدات.
@@ -59,39 +59,34 @@
 
     <!-- قسم الخدمات -->
     <section id="services">
-        <h2 data-aos="fade-up">⚙️ الخدمات</h2>
+        <h2 data-aos="fade-up">الخدمات</h2>
         <div class="cards">
 
             <!-- بطاقة ماين كرافت -->
-            <div class="card" data-aos="flip-up" data-aos-delay="100">
-                <!-- صورة الخدمة من Unsplash (Minecraft Style) -->
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85f202?w=500&h=300&fit=crop');">
-                    <div class="card-overlay">
-                        <i class="fas fa-cubes"></i>
-                    </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <div class="card-img">
+                    <img src="minecraft.png" alt="Minecraft Java">
                 </div>
                 <h3>Minecraft Java</h3>
                 <p>
-                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تحسين FPS<br>
-                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> مودات تحسين الأداء<br>
-                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> إعدادات JVM المتقدمة<br>
-                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تقليل التقطيع (Stuttering)
+                    <i class="fas fa-check-circle"></i> تحسين FPS<br>
+                    <i class="fas fa-check-circle"></i> مودات تحسين الأداء<br>
+                    <i class="fas fa-check-circle"></i> إعدادات JVM المتقدمة<br>
+                    <i class="fas fa-check-circle"></i> تقليل التقطيع (Stuttering)
                 </p>
             </div>
 
             <!-- بطاقة ويندوز -->
-            <div class="card" data-aos="flip-up" data-aos-delay="300">
-                <div class="card-img" style="background-image: url('https://images.unsplash.com/photo-1613909207039-6285f2bc36f7?w=500&h=300&fit=crop');">
-                    <div class="card-overlay">
-                        <i class="fab fa-windows"></i>
-                    </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <div class="card-img">
+                    <img src="windows.png" alt="Windows 10/11">
                 </div>
                 <h3>Windows 10 / 11</h3>
                 <p>
-                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تحسين أداء النظام<br>
-                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تقليل استهلاك الرام<br>
-                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تسريع زمن الإقلاع<br>
-                    <i class="fas fa-check-circle" style="color:#4caf50;"></i> تحسين تجربة الألعاب
+                    <i class="fas fa-check-circle"></i> تحسين أداء النظام<br>
+                    <i class="fas fa-check-circle"></i> تقليل استهلاك الرام<br>
+                    <i class="fas fa-check-circle"></i> تسريع زمن الإقلاع<br>
+                    <i class="fas fa-check-circle"></i> تحسين تجربة الألعاب
                 </p>
             </div>
 
@@ -100,8 +95,8 @@
 
     <!-- قسم التواصل -->
     <section id="contact">
-        <h2 data-aos="fade-up">📱 تواصل معي</h2>
-        <div class="social" data-aos="zoom-in" data-aos-delay="200">
+        <h2 data-aos="fade-up">تواصل معي</h2>
+        <div class="social" data-aos="fade-up" data-aos-delay="200">
             <a href="https://wa.me/966555179536" target="_blank" aria-label="WhatsApp">
                 <i class="fa-brands fa-whatsapp"></i>
             </a>
@@ -116,15 +111,15 @@
 
     <!-- تذييل الصفحة -->
     <footer>
-        <p>© 2026 Fix It! | Made with <i class="fas fa-heart" style="color:#e74c3c;"></i> for Gamers</p>
+        <p>© 2026 Fix It! | Made with <i class="fas fa-heart"></i> for Gamers</p>
     </footer>
 
     <!-- تفعيل مكتبة AOS للحركات -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 1000, // مدة الحركة
-            once: true, // تحدث مرة واحدة فقط
+            duration: 800,
+            once: true,
         });
     </script>
 
