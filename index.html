@@ -9,6 +9,9 @@
     <!-- رابط ملف التنسيق -->
     <link rel="stylesheet" href="style.css">
 
+    <!-- أيقونة الموقع -->
+    <link rel="icon" href="er.png" type="image/png">
+
     <!-- خط كايرو -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -95,7 +98,7 @@
             <!-- الباقة المميزة (عرض خاص) -->
             <div class="card featured" data-aos="fade-up" data-aos-delay="300">
                 <div class="card-img">
-                    <img src="minecraft.png" alt="باقة مميزة">
+                    <img src="er.png" alt="باقة مميزة">
                     <div class="badge">🔥 عرض خاص</div>
                 </div>
                 <h3>الباقة المميزة</h3>
@@ -129,7 +132,6 @@
                 </p>
                 <div class="price">السعر: 50 ريال</div>
                 <a href="https://wa.me/966555179536?text=أريد%20طلب%20خدمة%20TeamViewer" target="_blank" class="btn-service">اطلب الخدمة</a>
-                <p class="method-note">⚠️ يجب طلب الخدمة أولاً لتحديد الطريقة المناسبة</p>
             </div>
 
             <!-- الطريقة الثانية: دليل نصي كامل -->
@@ -144,7 +146,6 @@
                 </p>
                 <div class="price">السعر: 30 ريال</div>
                 <a href="https://wa.me/966555179536?text=أريد%20طلب%20الدليل%20النصي" target="_blank" class="btn-service">اطلب الخدمة</a>
-                <p class="method-note">⚠️ يجب طلب الخدمة أولاً لتحديد الطريقة المناسبة</p>
             </div>
 
             <!-- الطريقة الثالثة: دليل نصي مع دعم -->
@@ -159,7 +160,6 @@
                 </p>
                 <div class="price">السعر: 40 ريال</div>
                 <a href="https://wa.me/966555179536?text=أريد%20طلب%20دليل%20مع%20دعم%20فني" target="_blank" class="btn-service">اطلب الخدمة</a>
-                <p class="method-note">⚠️ يجب طلب الخدمة أولاً لتحديد الطريقة المناسبة</p>
             </div>
 
         </div>
@@ -174,9 +174,6 @@
             </a>
             <a href="https://www.tiktok.com/@fix.it325" target="_blank" aria-label="TikTok">
                 <i class="fa-brands fa-tiktok"></i>
-            </a>
-            <a href="#" target="_blank" aria-label="YouTube">
-                <i class="fa-brands fa-youtube"></i>
             </a>
         </div>
         <p class="contact-note" data-aos="fade-up" data-aos-delay="300">
@@ -195,6 +192,18 @@
         AOS.init({
             duration: 800,
             once: true,
+        });
+    </script>
+
+    <!-- رسالة منبثقة عند الضغط على طريقة العمل -->
+    <script>
+        document.querySelectorAll('.method-card .btn-service').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('⚠️ يجب طلب الخدمة أولاً لتحديد الطريقة المناسبة');
+                // يمكن توجيه المستخدم إلى قسم الخدمات
+                document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+            });
         });
     </script>
 
